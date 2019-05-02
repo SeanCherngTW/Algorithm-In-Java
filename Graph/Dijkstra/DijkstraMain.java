@@ -1,6 +1,8 @@
+import java.util.Set;
+
 class DijkstraMain {
     public static void main(String[] args) {
-        int inf = 2147483647;
+        int inf = Integet.MAX_VALUE;
         int[][] graph = { { inf, 8, inf, inf, inf, 1 }, { 3, inf, 1, inf, inf, inf }, { 5, inf, inf, 2, 2, inf },
                 { inf, 4, 6, inf, 7, 3 }, { inf, inf, inf, inf, inf, inf }, { inf, inf, inf, 2, 8, inf } };
 
@@ -8,6 +10,7 @@ class DijkstraMain {
         int[] distance = new int[N];
         int[] predecessor = new int[N];
         DijkstraQueue Q = new DijkstraQueue(N);
+        Set<Integer> S = new HashSet<Integer>();
 
         for (int i = 0; i < N; i++) {
             distance[i] = inf;
@@ -38,13 +41,13 @@ class DijkstraMain {
             System.out.printf("%2d ", i);
         System.out.println();
         for (int i = 0; i < N; i++)
-            System.out.printf("%2d ", predecessor[i]); 
+            System.out.printf("%2d ", predecessor[i]);
 
         System.out.println("\n\nPrint distance:");
         for (int i = 0; i < N; i++)
             System.out.printf("%2d ", i);
         System.out.println();
         for (int i = 0; i < N; i++)
-            System.out.printf("%2d ", distance[i]); 
+            System.out.printf("%2d ", distance[i]);
     }
 }
